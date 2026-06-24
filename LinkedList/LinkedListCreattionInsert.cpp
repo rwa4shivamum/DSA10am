@@ -1,30 +1,43 @@
 #include <iostream>
 using namespace std;
 
-class Student{
-    private:
-    string name = "Aryan";
-    int age = 19;
-    string isGirlfrnd = "riya";
-
+class Node{
     public:
-    Student(){
-        cout << "this is constructor" << this->name << endl;
-    }
+    int value;
+    Node* next;
 
-    ~Student(){
-        cout << "this is decontructor" << endl;
+    Node(int value){
+        this->value = value;
+        this->next = NULL;
     }
-    private:
-    
 };
 
-
-
+void traverse(Node *head)
+{
+  Node *temp = head;
+  cout << "here my temp value similair to first Node " << temp->value << temp << endl;
+  while (temp != NULL)
+  {
+    cout << temp->value << " -> here in while loop" << temp->next;
+    temp = temp->next;
+  }
+  cout << "NULL\n";
+}
 
 int main(){
-    Student s1;
-    //s1.name
+    Node *first = new Node(10);
+    Node *second = new Node(20);
+    Node *third = new Node(30);
+    first->next = second;
+    second->next = third;
+    cout << first->value << first << " here first node value " << first->next << endl;
+    traverse(first);
+    // cout << first;
+    // cout << first << " " << second << endl;
+    // first->next = third;
+    // third->next = second;
+    // cout << first->next <<" here value of first" <<first->value << "second Node next" << second->next << endl;
+    
     return 0;
 }
 
