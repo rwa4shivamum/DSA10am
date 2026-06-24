@@ -12,7 +12,7 @@
 // 6,8,9,12,13,14,15
 #include <iostream>
 #include <vector>
-using namespace std;
+using namespace std;  
 
 vector <int> insertionSort(vector <int> arr1){
   for(int i=1; i<arr1.size(); i++){
