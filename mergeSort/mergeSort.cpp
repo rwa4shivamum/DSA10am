@@ -2,9 +2,11 @@
 #include <vector>
 
 using namespace std;
+//{1,3,5,7,8} {2,4,6,8,10,12,14,16}
+//{1,2,3,4,5,6,7,8,10} 
 vector<int> mergeTwoSortedArr(const vector<int> &arr1, const vector<int> &arr2)
 {
-    vector<int> mergeSortedArr;
+    vector<int> mergeSortedArr;//{1,2,3,4} i=0 to i=2; j=1       
     int i = 0;
     int j = 0;
     while (i < arr1.size() && j < arr2.size())

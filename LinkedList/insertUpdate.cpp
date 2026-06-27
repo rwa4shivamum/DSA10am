@@ -14,7 +14,7 @@ class Node{
 //firstNode= [10,NULL], head = [NULL,NULL]
 /*
 newNode = [40,NULL]
-firstNode = [10,secondNode] ; secondNode = [20,tirdNode]; thirdNode = [30,newNode]
+firstNode = [10,secondNode] ; secondNode = [20,tirdNode]; thirdNode = [30,NULL], fouthNode = [40,NULL]
 */
 class LinkedList {
     public:
@@ -44,6 +44,29 @@ class LinkedList {
          temp->next = newNode;
     }
 
+    void deleteAtBegin() {
+        if(head == NULL){
+            cout << "list is Empty" << endl;
+        }
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    void deleteAtEnd(){
+        if(head == NULL){
+            cout << "list is Empty" << endl;
+        }
+        Node *temp = head;
+        while (temp->next->next != NULL)
+        {
+            cout << temp->value << " here under while loop "<< endl;
+            temp = temp->next;
+        }
+        delete temp->next;
+        temp->next = NULL;
+        cout << temp->value << " here the last node" << endl;
+    }
     void updateNode(int oldValue, int newValue){
         Node* temp = head;
         while(temp != NULL){
@@ -55,7 +78,6 @@ class LinkedList {
         }
         cout << "Node not Exist" << endl;
     }
-
     void traverse()
     {
         Node *temp = head;
@@ -74,10 +96,13 @@ int main(){
     //firstNode->next
     LinkedList s;
     s.insertAtEnd(10);
-    s.insertAtBegin(5);
+    // s.insertAtBegin(5);
     s.insertAtEnd(20);
-    s.insertAtBegin(4);
-    s.updateNode(20, 70);
+    s.insertAtEnd(30);
+    s.insertAtEnd(40);
+    // s.insertAtBegin(4);
+    // s.updateNode(20, 70);
+     s.deleteAtEnd();
     s.traverse();
     return 0;
 }
